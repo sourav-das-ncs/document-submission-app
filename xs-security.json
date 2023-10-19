@@ -1,0 +1,14 @@
+{
+  "scopes": [
+    {
+        "name": "$XSAPPNAME.testjobscheduler",
+        "description": "testjobscheduler Scope",
+        "grant-as-authority-to-apps": [
+            "$XSSERVICENAME(jobschtest)"
+            
+        ]
+    }
+],
+  "attributes": [],
+  "role-templates": []
+}
