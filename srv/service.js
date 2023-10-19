@@ -1,4 +1,4 @@
-const LOG = cds.log('testsch');
+const LOG = cds.log('generalService');
 
 module.exports = cds.service.impl(async function () {
 

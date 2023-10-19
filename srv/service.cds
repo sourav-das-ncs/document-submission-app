@@ -1,8 +1,8 @@
-using { testjobscheduler as my } from '../db/schema';
+using { general as my } from '../db/schema';
 
-@path: '/service/testjobscheduler'
+@path: '/service/general'
 // @requires: 'authenticated-user'
-service testjobschedulerService {
+service generalService {
  function triggerWorkflow() returns String;
  action handleNotification();
 }

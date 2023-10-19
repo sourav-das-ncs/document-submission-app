@@ -10,7 +10,7 @@ build-parameters:
             commands:
                 - npx cds build --production
 modules:
-    -   name: nodejs-backend-srv
+    -   name: nodejs-general-srv
         type: nodejs
         path: gen/srv
         parameters:

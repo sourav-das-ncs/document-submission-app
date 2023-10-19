@@ -36,3 +36,5 @@ build/dist/
 env/
 
 .vscode
+
+gen
