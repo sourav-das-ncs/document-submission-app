@@ -38,3 +38,7 @@ env/
 .vscode
 
 gen
+
+node_modules
+
+gen

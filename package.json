@@ -30,13 +30,13 @@
             "app-service": {
                 "impl": "@sap/low-code-event-handler"
             },
-            "S4_ODATA": {
-                "kind": "odata",
-                "credentials": {
-                    "destination": "s4hdev_900",
-                    "path": "/sap/opu/odata"
+            "[production]": {
+                "db": "hana",
+                "auth": {
+                    "kind": "xsuaa"
                 }
-            }
+            },
+            "db": "sql"
         },
         "features": {
             "fetch_csrf": true

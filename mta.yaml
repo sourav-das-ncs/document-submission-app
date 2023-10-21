@@ -1,4 +1,4 @@
-_schema-version: '3.1'
+_schema-version: "3.1"
 ID: all-purpose-backend
 version: 1.0.0
 description: "all-purpose-backend"
@@ -6,36 +6,49 @@ parameters:
     enable-parallel-deployments: true
 build-parameters:
     before-all:
-        -   builder: custom
-            commands:
-                - npx cds build --production
+        - builder: custom
+          commands:
+              - npx cds build --production
 modules:
-    -   name: nodejs-general-srv
-        type: nodejs
-        path: gen/srv
-        parameters:
-            buildpack: nodejs_buildpack
-        build-parameters:
-            builder: npm
-        provides:
-            -   name: srv-api # required by consumers of CAP services (e.g. approuter)
-                properties:
-                    srv-url: ${default-url}
-        requires:
-            -   name: general-db
+    - name: nodejs-general-srv
+      type: nodejs
+      path: gen/srv
+      parameters:
+          buildpack: nodejs_buildpack
+      build-parameters:
+          builder: npm
+      provides:
+          - name: srv-api # required by consumers of CAP services (e.g. approuter)
+            properties:
+                srv-url: ${default-url}
+      requires:
+          - name: general-db
+          - name: docstore
+          - name: sbpa
 
-    -   name: general-db-deployer
-        type: hdb
-        path: gen/db
-        parameters:
-            buildpack: nodejs_buildpack
-        requires:
-            -   name: general-db
+    - name: general-db-deployer
+      type: hdb
+      path: gen/db
+      parameters:
+          buildpack: nodejs_buildpack
+      requires:
+          - name: general-db
 
 resources:
-    -   name: general-db
-        type: com.sap.xs.hdi-container
-        parameters:
-            service: hana
-            service-plan: schema
-  
+    - name: general-db
+      type: com.sap.xs.hdi-container
+      parameters:
+          service: hana
+          service-plan: hdi-shared
+
+    - name: docstore
+      type: org.cloudfoundry.managed-service
+      parameters:
+          service: sdm
+          service-plan: free
+
+    - name: sbpa
+      type: org.cloudfoundry.managed-service
+      parameters:
+          service: process-automation-service
+          service-plan: standard

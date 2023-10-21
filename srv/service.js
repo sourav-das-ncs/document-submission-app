@@ -1,16 +1,77 @@
 const LOG = cds.log('generalService');
 
+const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
+const workflowService = require("./workflow/WorkflowService");
+const documentService = require("./docstore/DocumentService");
+
 module.exports = cds.service.impl(async function () {
 
-    const service = await cds.connect.to('S4_ODATA');
     const VCAP_SERVICES = JSON.parse(process.env.VCAP_SERVICES);
 
-    this.on('triggerWorkflow', async (req) => {
-        let res;
-        // console.log(VCAP_SERVICES);
+    documentService.setRepository();
+
+    const db = await cds.connect.to('db');
+
+    function decodeBase64(base64String) {
         try {
-            const data = await service.get("/ui2/PAGE_BUILDER_CONF");
-            console.log('in triggerWorkflow', data);
+            // Use the atob function from the js-base64 library
+            const decodedString = Base64.atob(base64String);
+            return decodedString;
+        } catch (error) {
+            console.error('Error decoding Base64:', error);
+            return null;
+        }
+    }
+
+
+    const triggerDocumentWorkflow = async function () {
+        const accessToken = await workflowService.getAccessToken();
+        const oPayload = {
+            "definitionId": "us10.demo-nrdspy5x.documentapproval.documentApprovalVerification",
+            "context": {
+                "docid": "abcd",
+                "doctype": "asd",
+                "docno": "asd",
+                "docname": "ver"
+            }
+        };
+        const data = await workflowService.start(accessToken, oPayload);
+        console.log('in triggerWorkflow', data);
+        return data;
+    }
+
+    this.on('createDocument', async (context) => {
+        let res;
+
+        try {
+
+            let data = context.req.data;
+            console.log(data);
+            
+            const content = decodeBase64(data.content);
+
+            const newUuid = uuidv4();
+
+            const documentDetails = await documentService.createDocument("test", newUuid, content);
+            // await triggerDocumentWorkflow();
+            console.log(documentDetails);
+
+            let query = INSERT.into("GENERAL_DOCUMENT").entries({
+                ID: newUuid,
+                DOC_TYPE: "JS",
+                DOC_ID: documentDetails.id,
+                NAME: data.filename,
+                MIME_TYPE: data.mimeType,
+                STATUS: "NEW",
+                CREATED_BY: "",
+            })
+
+            let insertedDoc = await db.tx(context).run(query);
+            console.log(insertedDoc);
+
+            return insertedDoc;
+
         } catch (err) {
             LOG.error("in catch function", err)
             res = err;
@@ -20,8 +81,64 @@ module.exports = cds.service.impl(async function () {
 
     });
 
-    this.on('handleNotification', async req => {
-        console.log('in handleNotification')
+    this.on('updateDocument', async (context) => {
+        let res;
+
+        try {
+
+            let filestream = fs.createReadStream('automation.js');
+
+            const newUuid = uuidv4();
+
+            const documentDetails = await documentService.createDocument("test", newUuid, filestream);
+            // await triggerDocumentWorkflow();
+            console.log(documentDetails);
+
+            const ID = context.req.query.hasOwnPropery("id");
+
+            let query = UPDATE("GENERAL_DOCUMENT").where({
+                ID: ID
+            }).set({
+                DOC_ID: documentDetails.id,
+                NAME: documentDetails.name,
+                MIME_TYPE: documentDetails.mimeType,
+                STATUS: "PENDING"
+            })
+
+            let updatedDoc = await db.tx(context).run(query);
+            console.log(updatedDoc);
+
+
+        } catch (err) {
+            LOG.error("in catch function", err)
+            res = err;
+        }
+
+        return 'No Data';
+
+    });
+
+    this.on('readDocument', async context => {
+        console.log('in readDocument');
+        let query = SELECT.from("GENERAL_DOCUMENT").where({ ID: context.req.query.id })
+
+        let document = await db.tx(context).run(query);
+        if (document.length <= 0) return "Not Found";
+
+        document = document[0];
+
+        console.log(document);
+
+        const content = await documentService.readDocument(document.DOC_ID);
+        // console.log(data);
+
+        context.res.setHeader('Content-Type', document.MIME_TYPE);
+        context.res.setHeader('Content-Disposition', `attachment; filename="${document.NAME}"`);
+
+
+        // Send the content as a file
+        context.res.send(content);
+
     })
 
 

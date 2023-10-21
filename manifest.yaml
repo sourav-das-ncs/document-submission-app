@@ -1,0 +1,5 @@
+applications:
+  - name: nodejs-general-srv
+    path: gen/srv
+    buildpacks:
+      - nodejs_buildpack
