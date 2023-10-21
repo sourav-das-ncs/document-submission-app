@@ -7,8 +7,8 @@ service generalService {
     entity DOCUMENT_TABLE as
         projection on my.Document;
 
-    action createDocument() ;
-    action updateDocument();
+    action createDocument(filename:String, content:String, mimeType:String);
+    action updateDocument(filename:String, content:String, mimeType:String);
     function readDocument() returns String;
 
     

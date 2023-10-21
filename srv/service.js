@@ -1,5 +1,5 @@
 const LOG = cds.log('generalService');
-
+const { Base64 } = require('js-base64');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const workflowService = require("./workflow/WorkflowService");
@@ -46,9 +46,8 @@ module.exports = cds.service.impl(async function () {
 
         try {
 
-            let data = context.req.data;
+            let data = context.data;
             console.log(data);
-            
             const content = decodeBase64(data.content);
 
             const newUuid = uuidv4();
@@ -86,11 +85,13 @@ module.exports = cds.service.impl(async function () {
 
         try {
 
-            let filestream = fs.createReadStream('automation.js');
+            let data = context.data;
+            console.log(data);
+            const content = decodeBase64(data.content);
 
             const newUuid = uuidv4();
 
-            const documentDetails = await documentService.createDocument("test", newUuid, filestream);
+            const documentDetails = await documentService.createDocument("test", newUuid, content);
             // await triggerDocumentWorkflow();
             console.log(documentDetails);
 
@@ -100,8 +101,8 @@ module.exports = cds.service.impl(async function () {
                 ID: ID
             }).set({
                 DOC_ID: documentDetails.id,
-                NAME: documentDetails.name,
-                MIME_TYPE: documentDetails.mimeType,
+                NAME: data.filename,
+                MIME_TYPE: data.mimeType,
                 STATUS: "PENDING"
             })
 
