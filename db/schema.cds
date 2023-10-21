@@ -20,6 +20,6 @@ entity Document {
         MIME_TYPE  : String(100);
         STATUS     : String(100);
         CREATED_BY : String(100);
-        CREATED_AT : String(100) default CURRENT_TIMESTAMP;
+        CREATED_AT : DateTime default CURRENT_TIMESTAMP;
     
 }
