@@ -1,518 +1,182 @@
 {
-    "ZSG_AL_AP.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_AL_AR.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_AL_LO.PRO_YUSEN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_BP_WF.APPR": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_BP_WF.BP_FI_APPR": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_BP_WF.REQ": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CO_OM.IOADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CO_OM.IORPT": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CO_PA.SDSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CS_EM.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CS_EM.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CS_LO.PRO-GI": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CS_LO.PRO-GR": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CS_NO.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CS_NO.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_CS_NO.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_EWM_DO.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_EWM_MD.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_EWM_TO.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_EWM_TO.OP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AA.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AP.DISP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AP.LOGI": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AP.PARK": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AP.POST": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AP.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AP.VENADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AP.VENCFM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AR.CUSADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AR.DISP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AR.PARK": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AR.POST": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AR.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AR.PYMT": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_AR.SOAADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GL.ADM": {
-        "BC": "ZBC_FIN_GL_ADMIN",
-        "BG": "ZBG_FIN_GL_ADMIN"
-    },
-    "ZSG_FI_GL.CHG": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GL.DISP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GL.MGRP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GL.PARK": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GL.POST": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GL.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GL.SDSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FI_GLCLS.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_FSCM_CR.CRDBLK_APPR": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_COND.UPL": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_CT.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_IM.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_IM.SDSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_IM.STKOFF": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LA.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.CHG-DOC": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.NT.PRO-GR": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-GI": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-GI.CANCEL": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-GR": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-TRS": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-TRS_ADMIN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-TRSMTM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-TRSMTM_REV": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-TRSSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_LO.PRO-TRV": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MAT.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.DSP_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.ECP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.GPSI": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.PRICE": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.PRO_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.PRO_GSCM_MAP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_MM.STBIN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_NEA.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PI.ENTER": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PI.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.APPLV": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.CON": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.CON_DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.COND_DSP_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.COND_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.DSP_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.GRI": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.INTF": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.NT.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.NT.PRT": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.PRO_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.PRT": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.SDSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.SP_DSP_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PO.SP_GSCM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PR.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_PR.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_MM_TO.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_PS_PRJ.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_PS_PRJ.MEC.PROC": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_PS_PRJ.PCT.PROC": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_PS_PRJ.PMT.PROC": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_PS_PRJ.STD.PROC": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_BL.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_BL.INTF": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_BL.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_BL.PRO_ADMIN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_BL.PRO_INTER": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_BL.REQCNC": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_CM.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_CMIR.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_CMIR.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_COND.ADM": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_COND.ADMPR00": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_COND.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_COND.UPLPR00": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_COND.UPLZPRB": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_DO.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_DO.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_DOA.ADMIN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_LA.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_LC.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_QT.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_QT.PRO_ADMIN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_REB.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.APPCL": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.APPCL_ADMIN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.APPSB": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.DSP": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.DSPCL": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.INTF": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.PRO": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
-    },
-    "ZSG_SD_SO.PRO_ADMIN": {
-        "BC": "ZBC_SD_SO_PRO_ADMIN",
-        "BG": "ZBG_SD_SO_PRO_ADMIN"
+    "openapi": "3.0.0",
+    "x-odata-version": "4.0",
+    "info": {
+      "title": "Download a File",
+      "description": "This request helps in downloading a file. It returns requested document content directly or redirects to a URL that provides the document content.",
+      "version": "1.0"
+    },
+    "servers": [
+      {
+        "url": "https://{subdomain}.cfapps.{region}.hana.ondemand.com",
+        "description": "Testing Server",
+        "variables":
+          {
+            "subdomain" : {"default": ""},
+            "region": {"default": ""}
+          }
+      }
+    ],
+    "security": [
+      {
+        "OAuth2": []
+      }
+    ],
+    "x-sap-stateInfo": {
+      "state": "Active"
+    },
+    "x-sap-shortText": "Downloads a file with a unique object identifier",
+    "tags": [
+      {
+        "name": "Download a File"
+      }
+    ],
+    "paths": {
+      "/browser/{repository_id}/root": {
+        "get": {
+          "tags": [
+            "Download a file"
+          ],
+          "parameters": [
+            {
+              "name": "repository_id",
+              "in": "path",
+              "description": "The repository to be used is identified using repository id",
+              "required": true,
+              "style": "simple",
+              "explode": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "cmisselector",
+              "description": "In order to perform this particular operation in a Repository,cmisselector parameter in an HTTP GET request must be:content",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              },
+              "example": "content"
+            },
+            {
+                "name": "download",
+                "description": "Type to download such as 'inline' or 'attachment'.",
+                "in": "query",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "attachment"
+            },
+            {
+                "name": "filename",
+                "description":"Holds the name of the file",
+                "in": "query",
+                "schema": {
+                  "type": "string"
+                },
+                "example": "djdkjdkdjk.pdf"
+            },
+            {
+              "name": "objectId",
+              "description": "Identifier of the object",
+              "in": "query",
+              "required": false,
+              "style": "form",
+              "explode": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "summary": "Downloads a file with a unique object identifier",
+          "description": "This request helps in downloading a file. It returns requested document content directly or redirects to a URL that provides the document content.",
+          "responses": {
+            "200": {
+              "description": "successful response",
+              "content": {
+                "text/plain": {
+                    "schema": {
+                        "type": "string",
+                        "example":"Downloaded"
+                    }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid access token",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "4XX":{
+              "description": "Invalid flow",
+              "content":{
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/invalidflow"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Server error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "error",
+              "example": "internal server error"
+            }
+          }
+        },
+        "invalidflow": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "error"
+            },
+            "status":{
+              "type":"string"
+            }
+          }
+        }
+      },
+      "securitySchemes": {
+         "OAuth2": {
+          "type": "oauth2",
+          "x-stable":true,
+          "description": "To use this API, you need to obtain the OAuth client credentials (client ID and secret) from SAP Document Management. After that, pass these client credentials to the SAP API token endpoint to obtain an access token.<br/>Permissions: Admin for Document Management, integration option via the scope SDM_Admin",
+          "flows": {
+            "clientCredentials": {
+              "tokenUrl": "https://{identityzone}.authentication.{region}.hana.ondemand.com/oauth/token",
+              "scopes": {}
+            }
+          }
+        }
+      }
     }
-}
+  }
+
