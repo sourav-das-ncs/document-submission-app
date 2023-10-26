@@ -25,15 +25,15 @@ module.exports = cds.service.impl(async function () {
     }
 
 
-    const triggerDocumentWorkflow = async function () {
+    const triggerDocumentWorkflow = async function (docItem) {
         const accessToken = await workflowService.getAccessToken();
         const oPayload = {
             "definitionId": "us10.demo-nrdspy5x.documentapproval.documentApprovalVerification",
             "context": {
-                "docid": "abcd",
-                "doctype": "asd",
-                "docno": "asd",
-                "docname": "ver"
+                "docid": docItem.ID,
+                "doctype": docItem.DOC_TYPE,
+                "docno": docItem.DOC_NO,
+                "docname": docItem.NAME
             }
         };
         const data = await workflowService.start(accessToken, oPayload);
@@ -47,27 +47,37 @@ module.exports = cds.service.impl(async function () {
         try {
 
             let data = context.data;
-            console.log(data);
+
             const content = decodeBase64(data.content);
 
+            console.log(content);
             const newUuid = uuidv4();
 
-            const documentDetails = await documentService.createDocument("test", newUuid, content);
-            // await triggerDocumentWorkflow();
+            const documentDetails = await documentService.createFromStringContent("test", newUuid, content);
+
             console.log(documentDetails);
 
-            let query = INSERT.into("GENERAL_DOCUMENT").entries({
+            const newDoc = {
                 ID: newUuid,
-                DOC_TYPE: "JS",
+                DOC_NO: "DOC" + newUuid.substring(0, 8),
+                DOC_TYPE: "PURDOC", // PURDOC || SALEDOC
                 DOC_ID: documentDetails.id,
                 NAME: data.filename,
                 MIME_TYPE: data.mimeType,
                 STATUS: "NEW",
                 CREATED_BY: "",
-            })
+            };
+
+            let query = INSERT.into("GENERAL_DOCUMENT").entries(newDoc);
 
             let insertedDoc = await db.tx(context).run(query);
             console.log(insertedDoc);
+
+            await triggerDocumentWorkflow(newDoc);
+
+            UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
+                STATUS: "PENDING"
+            });
 
             return insertedDoc;
 

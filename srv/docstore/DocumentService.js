@@ -1,6 +1,10 @@
 const cds = require('@sap/cds')
 const axios = require('axios').default;
 const FormData = require('form-data');
+const { Readable } = require("stream");
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
 
 const VCAP_SERVICES = JSON.parse(process.env.VCAP_SERVICES);
 const sdmCredentials = VCAP_SERVICES.sdm[0].credentials;
@@ -128,6 +132,23 @@ module.exports = {
         return res.data.succinctProperties["cmis:objectId"];
     },
 
+    createFromStringContent: async function (folder, filename, content) {
+        // const readable = Readable.from([content]);
+        const tempFilePath = path.join(os.tmpdir(), 'tempfile.txt');
+        fs.writeFileSync(tempFilePath, content);
+        const stream = fs.createReadStream(tempFilePath);
+        try {
+            const resp = await this.createDocument(folder, filename, stream);
+            return resp;
+        } catch (e) {
+            throw e;
+        } finally {
+            if (fs.existsSync(tempFilePath)) {
+                fs.unlinkSync(tempFilePath);
+            }
+        }
+    },
+
 
     createDocument: async function (folder, filename, content) {
 
@@ -178,12 +199,12 @@ module.exports = {
             },
             responseType: 'text'
         };
-
         const res = await axios.request(config);
-        const data = res.data;
-        // console.log("response", data);
-
-        return data;
-
+        if (res.status === 200) {
+            const data = res.data;
+            // console.log("response", data);
+            return data;
+        }
+        throw new Error("file fetch failed");
     }
 };
