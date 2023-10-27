@@ -44,10 +44,12 @@ module.exports = cds.service.impl(async function () {
     const updateRework = async function (docItem) {
         const accessToken = await workflowService.getAccessToken();
         const data = await workflowService.getReadyTask(accessToken, docItem.WF_INSTANCE_ID);
-
+        console.log("docItem", docItem);
+        console.log("tasks", data);
         const task = data.find(item => item.subject.includes("Rework"));
+        console.log("task", task);
 
-        let res = await workflowService.updateTask(accessToken, task.id, "REJ");
+        let res = await workflowService.updateTask(accessToken, task.id, "APPR");
 
     }
 
@@ -69,7 +71,7 @@ module.exports = cds.service.impl(async function () {
 
             const newDoc = {
                 ID: newUuid,
-                DOC_NO: "DOC" + newUuid.substring(0, 8),
+                DOC_NO: newUuid.substring(0, 8).toUpperCase(),
                 DOC_TYPE: "PURDOC", // PURDOC || SALEDOC
                 DOC_ID: documentDetails.id,
                 NAME: data.filename,
@@ -84,10 +86,12 @@ module.exports = cds.service.impl(async function () {
             console.log(insertedDoc);
 
             const wfResponse = await triggerDocumentWorkflow(newDoc);
+            
+            console.log("wfResponse", wfResponse);
 
-            query = await UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
+            query = UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
                 STATUS: "PENDING",
-                WF_INSTANCE_ID: wfResponse.ID
+                WF_INSTANCE_ID: wfResponse.id
             });
 
             let updatedDoc = await db.tx(context).run(query);
@@ -116,6 +120,7 @@ module.exports = cds.service.impl(async function () {
 
             let document = await db.tx(context).run(query);
             if (document.length <= 0) return "Document Not Found";
+            document = document[0];
 
             let data = context.data;
             console.log(data);

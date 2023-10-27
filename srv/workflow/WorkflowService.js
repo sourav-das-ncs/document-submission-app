@@ -7,6 +7,7 @@ const VCAP_SERVICES = JSON.parse(process.env.VCAP_SERVICES);
 const sbpaCredentials = VCAP_SERVICES["process-automation-service"][0].credentials;
 const API_PATH = "/workflow/rest/v1/workflow-instances";
 const API_FULL_URL = sbpaCredentials.endpoints.api + API_PATH;
+const BASE_URL = sbpaCredentials.endpoints.api;
 
 
 const getWFToken = async function () {
@@ -138,7 +139,7 @@ const cancelWF = async function (accessToken, wfInstanceId) {
 
 const getReadyTask = async function (accessToken, wfInstanceId) {
 
-    const url = `${sbpaCredentials.endpoints.api}/public/workflow/rest/v1/task-instances?Status=READY&workflowInstanceId=${wfInstanceId}`;
+    const url = `${BASE_URL}/public/workflow/rest/v1/task-instances?Status=READY&workflowInstanceId=${wfInstanceId}`;
     let config = {
         method: 'GET',
         url: url,
@@ -148,6 +149,7 @@ const getReadyTask = async function (accessToken, wfInstanceId) {
     };
 
     const res = await axios.request(config);
+    console.log(res);
 
     return res.data;
 }
@@ -158,7 +160,7 @@ const updateTask = async function (accessToken, taskId, decision) {
     const headers = {
         authorization: 'Bearer ' + accessToken,
     }
-    const API_FULL_URL_CCL = `${sbpaCredentials.endpoints.api}/public/workflow/rest/v1/task-instances/${taskId}`;
+    const API_FULL_URL_CCL = `${BASE_URL}/public/workflow/rest/v1/task-instances/${taskId}`;
 
     var oPayload = { "status": "COMPLETED", "decision": decision === "APPR" ? "approve": "reject"};
 
