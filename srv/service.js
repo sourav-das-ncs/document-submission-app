@@ -75,9 +75,11 @@ module.exports = cds.service.impl(async function () {
 
             await triggerDocumentWorkflow(newDoc);
 
-            UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
+            query = await UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
                 STATUS: "PENDING"
             });
+
+            let updatedDoc = await db.tx(context).run(query);
 
             return insertedDoc;
 

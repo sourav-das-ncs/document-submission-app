@@ -45,7 +45,7 @@ gen
 
 node_modules
 
-gen
+./gen
 
 .vscode
 
