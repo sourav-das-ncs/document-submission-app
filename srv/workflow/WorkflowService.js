@@ -136,9 +136,46 @@ const cancelWF = async function (accessToken, wfInstanceId) {
     return res;
 };
 
+const getReadyTask = async function (accessToken, wfInstanceId) {
+
+    const url = `${sbpaCredentials.endpoints.api}/public/workflow/rest/v1/task-instances?Status=READY&workflowInstanceId=${wfInstanceId}`;
+    let config = {
+        method: 'GET',
+        url: url,
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        }
+    };
+
+    const res = await axios.request(config);
+
+    return res.data;
+}
+
+
+const updateTask = async function (accessToken, taskId, decision) {
+    let res;
+    const headers = {
+        authorization: 'Bearer ' + accessToken,
+    }
+    const API_FULL_URL_CCL = `${sbpaCredentials.endpoints.api}/public/workflow/rest/v1/task-instances/${taskId}`;
+
+    var oPayload = { "status": "COMPLETED", "decision": decision === "APPR" ? "approve": "reject"};
+
+    const destinationResult = await axios.patch(API_FULL_URL_CCL, oPayload, {
+        headers,
+    });
+    const oProcessResponse = destinationResult.data;
+
+    console.log(oProcessResponse);
+    res = oProcessResponse;
+    return res;
+}
 
 module.exports = {
     getAccessToken: getWFToken,
     start: startWF,
-    cancel: cancelWF
+    cancel: cancelWF,
+    updateTask: updateTask,
+    getReadyTask: getReadyTask
 }

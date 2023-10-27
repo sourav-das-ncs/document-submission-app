@@ -41,6 +41,16 @@ module.exports = cds.service.impl(async function () {
         return data;
     }
 
+    const updateRework = async function (docItem) {
+        const accessToken = await workflowService.getAccessToken();
+        const data = await workflowService.getReadyTask(accessToken, docItem.WF_INSTANCE_ID);
+
+        const task = data.find(item => item.subject.includes("Rework"));
+
+        let res = await workflowService.updateTask(accessToken, task.id, "REJ");
+
+    }
+
     this.on('createDocument', async (context) => {
         let res;
 
@@ -73,10 +83,11 @@ module.exports = cds.service.impl(async function () {
             let insertedDoc = await db.tx(context).run(query);
             console.log(insertedDoc);
 
-            await triggerDocumentWorkflow(newDoc);
+            const wfResponse = await triggerDocumentWorkflow(newDoc);
 
             query = await UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
-                STATUS: "PENDING"
+                STATUS: "PENDING",
+                WF_INSTANCE_ID: wfResponse.ID
             });
 
             let updatedDoc = await db.tx(context).run(query);
@@ -97,6 +108,15 @@ module.exports = cds.service.impl(async function () {
 
         try {
 
+            if (context.req.query.id === null || context.req.query.id === "") {
+                return "Id not found";
+            }
+
+            let query = SELECT.from("GENERAL_DOCUMENT").where({ ID: context.req.query.id })
+
+            let document = await db.tx(context).run(query);
+            if (document.length <= 0) return "Document Not Found";
+
             let data = context.data;
             console.log(data);
             const content = decodeBase64(data.content);
@@ -107,16 +127,18 @@ module.exports = cds.service.impl(async function () {
             // await triggerDocumentWorkflow();
             console.log(documentDetails);
 
-            const ID = context.req.query.hasOwnPropery("id");
+            await updateRework(document);
 
-            let query = UPDATE("GENERAL_DOCUMENT").where({
+            const ID = context.req.query.id;
+
+            query = UPDATE("GENERAL_DOCUMENT").where({
                 ID: ID
             }).set({
                 DOC_ID: documentDetails.id,
                 NAME: data.filename,
                 MIME_TYPE: data.mimeType,
                 STATUS: "PENDING"
-            })
+            });
 
             let updatedDoc = await db.tx(context).run(query);
             console.log(updatedDoc);

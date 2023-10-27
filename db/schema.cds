@@ -21,6 +21,7 @@ entity Document {
         NAME            : String(100);
         MIME_TYPE       : String(100);
         STATUS          : String(100);
+        WF_INSTANCE_ID  : String(100);
         L1APPR_COMMENTS : String(512);
         CREATED_BY      : String(100);
         CREATED_AT      : DateTime default CURRENT_TIMESTAMP;
