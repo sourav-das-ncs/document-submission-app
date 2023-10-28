@@ -16,7 +16,7 @@ module.exports = cds.service.impl(async function () {
     function decodeBase64(base64String) {
         try {
             // Use the atob function from the js-base64 library
-            const decodedString = Base64.atob(base64String);
+            const decodedString = decodeURIComponent(escape(Base64.atob(base64String)));
             return decodedString;
         } catch (error) {
             console.error('Error decoding Base64:', error);
@@ -86,7 +86,7 @@ module.exports = cds.service.impl(async function () {
             console.log(insertedDoc);
 
             const wfResponse = await triggerDocumentWorkflow(newDoc);
-            
+
             console.log("wfResponse", wfResponse);
 
             query = UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
