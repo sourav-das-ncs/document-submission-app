@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {as} = require("@sap/cds-dk/lib/util/term");
+
 const fs = require("fs");
 const crypto = require("crypto");
 const {join} = require("path");
@@ -48,8 +48,8 @@ async function uploadFiles() {
     for (const name of fs.readdirSync("./file-content")) {
         const filePath = join("./file-content", name);
         const file = {name: name, type: "plain/txt"};
-        const stream = fs.createReadStream(filePath);
-        await uploadFileInChunks(file, stream);
+        const stream = fs.createReadStream(filePath, { highWaterMark: 8 * 1024 * 1024 });
+        uploadFileInChunks(file, stream);
     }
 }
 
