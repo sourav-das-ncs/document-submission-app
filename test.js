@@ -189,6 +189,7 @@ async function main() {
                 let count = 1;
                 let objId;
                 var chunk = file.read();
+                // does not work
                 if (chunk != null) {
                     console.log(`chuck ${count} ${filename} ${chunk.length}`);
                     let response = await session.createDocumentFromString("/temp", chunk.toString(), filename);
