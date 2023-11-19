@@ -1,182 +1,20 @@
 {
-    "openapi": "3.0.0",
-    "x-odata-version": "4.0",
-    "info": {
-      "title": "Download a File",
-      "description": "This request helps in downloading a file. It returns requested document content directly or redirects to a URL that provides the document content.",
-      "version": "1.0"
-    },
-    "servers": [
-      {
-        "url": "https://{subdomain}.cfapps.{region}.hana.ondemand.com",
-        "description": "Testing Server",
-        "variables":
-          {
-            "subdomain" : {"default": ""},
-            "region": {"default": ""}
-          }
-      }
-    ],
-    "security": [
-      {
-        "OAuth2": []
-      }
-    ],
-    "x-sap-stateInfo": {
-      "state": "Active"
-    },
-    "x-sap-shortText": "Downloads a file with a unique object identifier",
-    "tags": [
-      {
-        "name": "Download a File"
-      }
-    ],
-    "paths": {
-      "/browser/{repository_id}/root": {
-        "get": {
-          "tags": [
-            "Download a file"
-          ],
-          "parameters": [
-            {
-              "name": "repository_id",
-              "in": "path",
-              "description": "The repository to be used is identified using repository id",
-              "required": true,
-              "style": "simple",
-              "explode": false,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "name": "cmisselector",
-              "description": "In order to perform this particular operation in a Repository,cmisselector parameter in an HTTP GET request must be:content",
-              "in": "query",
-              "required": false,
-              "style": "form",
-              "explode": true,
-              "schema": {
-                "type": "string"
-              },
-              "example": "content"
-            },
-            {
-                "name": "download",
-                "description": "Type to download such as 'inline' or 'attachment'.",
-                "in": "query",
-                "schema": {
-                  "type": "string"
-                },
-                "example": "attachment"
-            },
-            {
-                "name": "filename",
-                "description":"Holds the name of the file",
-                "in": "query",
-                "schema": {
-                  "type": "string"
-                },
-                "example": "djdkjdkdjk.pdf"
-            },
-            {
-              "name": "objectId",
-              "description": "Identifier of the object",
-              "in": "query",
-              "required": false,
-              "style": "form",
-              "explode": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "summary": "Downloads a file with a unique object identifier",
-          "description": "This request helps in downloading a file. It returns requested document content directly or redirects to a URL that provides the document content.",
-          "responses": {
-            "200": {
-              "description": "successful response",
-              "content": {
-                "text/plain": {
-                    "schema": {
-                        "type": "string",
-                        "example":"Downloaded"
-                    }
-                }
-              }
-            },
-            "401": {
-              "description": "Invalid access token",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "4XX":{
-              "description": "Invalid flow",
-              "content":{
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/invalidflow"
-                  }
-                }
-              }
-            },
-            "500": {
-              "description": "Server error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/error"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "components": {
-      "schemas": {
-        "error": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "description": "error",
-              "example": "internal server error"
-            }
-          }
+    "endpoints": {
+        "ecmservice": {
+            "url": "https://api-sdm-di.cfapps.us10.hana.ondemand.com/",
+            "timeout": 900000
         },
-        "invalidflow": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "description": "error"
-            },
-            "status":{
-              "type":"string"
-            }
-          }
+        "migrationservice": {
+            "url": "https://sdm-migration.cfapps.us10.hana.ondemand.com"
         }
-      },
-      "securitySchemes": {
-         "OAuth2": {
-          "type": "oauth2",
-          "x-stable":true,
-          "description": "To use this API, you need to obtain the OAuth client credentials (client ID and secret) from SAP Document Management. After that, pass these client credentials to the SAP API token endpoint to obtain an access token.<br/>Permissions: Admin for Document Management, integration option via the scope SDM_Admin",
-          "flows": {
-            "clientCredentials": {
-              "tokenUrl": "https://{identityzone}.authentication.{region}.hana.ondemand.com/oauth/token",
-              "scopes": {}
-            }
-          }
-        }
-      }
-    }
-  }
-
+    },
+    ...
+    "uaa": {
+        "clientid": "*****",
+        "clientsecret": "*****",
+        "url": "https://*****.authentication.us10.hana.ondemand.com",
+        ....
+        "credential-type": "instance-secret"
+    },
+    "uri": "https://api-sdm-di.cfapps.us10.hana.ondemand.com/"
+}

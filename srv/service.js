@@ -1,15 +1,19 @@
+const cds = require("@sap/cds");
+
 const LOG = cds.log('generalService');
-const { Base64 } = require('js-base64');
+const {Base64} = require('js-base64');
 const fs = require('fs');
-const { v4: uuidv4 } = require('uuid');
+const {v4: uuidv4} = require('uuid');
 const workflowService = require("./workflow/WorkflowService");
-const documentService = require("./docstore/DocumentService");
+const {CmisSessionManager} = require("./docstore/DocumentService");
 
 module.exports = cds.service.impl(async function () {
 
     const VCAP_SERVICES = JSON.parse(process.env.VCAP_SERVICES);
-
-    documentService.setRepository();
+    const sdmCredentials = VCAP_SERVICES.sdm[0].credentials;
+    const REPOSITORY_ID = "sg.com.ncs.document.demo";
+    let sm = new CmisSessionManager(sdmCredentials);
+    let documentService = await sm.openConnection(REPOSITORY_ID);
 
     const db = await cds.connect.to('db');
 
@@ -65,7 +69,7 @@ module.exports = cds.service.impl(async function () {
             console.log(content);
             const newUuid = uuidv4();
 
-            const documentDetails = await documentService.createFromStringContent("test", newUuid, content);
+            const documentDetails = await documentService.createFromStringContent("/test", content, newUuid);
 
             console.log(documentDetails);
 
@@ -89,7 +93,7 @@ module.exports = cds.service.impl(async function () {
 
             console.log("wfResponse", wfResponse);
 
-            query = UPDATE("GENERAL_DOCUMENT").where({ ID: newUuid }).set({
+            query = UPDATE("GENERAL_DOCUMENT").where({ID: newUuid}).set({
                 STATUS: "PENDING",
                 WF_INSTANCE_ID: wfResponse.id
             });
@@ -116,7 +120,7 @@ module.exports = cds.service.impl(async function () {
                 return "Id not found";
             }
 
-            let query = SELECT.from("GENERAL_DOCUMENT").where({ ID: context.req.query.id })
+            let query = SELECT.from("GENERAL_DOCUMENT").where({ID: context.req.query.id})
 
             let document = await db.tx(context).run(query);
             if (document.length <= 0) return "Document Not Found";
@@ -128,7 +132,7 @@ module.exports = cds.service.impl(async function () {
 
             const newUuid = uuidv4();
 
-            const documentDetails = await documentService.createDocument("test", newUuid, content);
+            const documentDetails = await documentService.createFromStringContent("test", content, newUuid);
             // await triggerDocumentWorkflow();
             console.log(documentDetails);
 
@@ -160,7 +164,7 @@ module.exports = cds.service.impl(async function () {
 
     this.on('readDocument', async context => {
         console.log('in readDocument');
-        let query = SELECT.from("GENERAL_DOCUMENT").where({ ID: context.req.query.id })
+        let query = SELECT.from("GENERAL_DOCUMENT").where({ID: context.req.query.id})
 
         let document = await db.tx(context).run(query);
         if (document.length <= 0) return "Not Found";
