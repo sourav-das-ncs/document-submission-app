@@ -34,13 +34,10 @@ mta_archives/
 build/ui-deployer/
 build/dist/
 env/
-
 .vscode
-
 gen
 .idea
 node_modules
 ./gen
-
 file-content
 fg
