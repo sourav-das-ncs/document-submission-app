@@ -38,8 +38,6 @@ env/
 .vscode
 
 gen
-
-.vscode
 .idea
 node_modules
 ./gen
