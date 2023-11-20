@@ -40,12 +40,9 @@ env/
 gen
 
 .vscode
-
 .idea
 node_modules
 ./gen
-.vscode
-.idea
 
 file-content
 fg
